@@ -4,6 +4,7 @@ import { defineComponent } from "vue";
 declare interface BaseComponentData {
   todo: string;
   todos: string[];
+  id: string;
 }
 
 export default defineComponent({
@@ -11,6 +12,7 @@ export default defineComponent({
     return {
       todo: "",
       todos: [],
+      id: "",
     };
   },
 
