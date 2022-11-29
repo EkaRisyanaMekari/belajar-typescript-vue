@@ -1,31 +1,18 @@
-<script lang="ts">
-import { defineComponent } from "vue";
+<script setup lang="ts">
+import { ref } from "vue";
+import type { Ref } from "vue";
 
-declare interface BaseComponentData {
-  todo: string;
-  todos: string[];
-  id: string;
-}
+const todo: Ref<string> = ref("");
+const todos: Ref<string[]> = ref([]);
 
-export default defineComponent({
-  data(): BaseComponentData {
-    return {
-      todo: "",
-      todos: [],
-      id: "",
-    };
-  },
+const addTodo = function (): void {
+  todos.value.push(todo.value);
+  todo.value = "";
+};
 
-  methods: {
-    addTodo(): void {
-      this.todos.push(this.todo);
-      this.todo = "";
-    },
-    deleteTodo(todo: string): void {
-      this.todos = this.todos.filter((data: string) => data !== todo);
-    },
-  },
-});
+const deleteTodo = function (deletedTodo: string): void {
+  todos.value = todos.value.filter((data) => data !== deletedTodo);
+};
 </script>
 
 <template>
