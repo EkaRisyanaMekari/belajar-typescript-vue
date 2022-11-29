@@ -19,7 +19,7 @@ export default defineComponent({
   methods: {
     addTodo(): void {
       this.todos.push(this.todo);
-      this.todo = 1;
+      this.todo = "";
     },
     deleteTodo(todo: string): void {
       this.todos = this.todos.filter((data: string) => data !== todo);
